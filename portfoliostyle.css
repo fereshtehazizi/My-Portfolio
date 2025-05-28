@@ -651,7 +651,7 @@ h3.my-profession{
         flex-wrap: wrap;
     }
     .portfolio .portfolio-item .portfolio-img img{
-        height: 170px;
+        height: 160px;
     }
     .footer-inner .footer-item p{
         max-width: 80%;
