@@ -650,6 +650,9 @@ h3.my-profession{
         font-size: 20px;
         flex-wrap: wrap;
     }
+    .portfolio .portfolio-item .portfolio-img img{
+        height: 170px;
+    }
     .footer-inner .footer-item p{
         max-width: 80%;
         justify-self: center;
