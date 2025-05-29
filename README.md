@@ -13,4 +13,4 @@ A classy and clean website inspired by my own creativity and it was built with m
 - Using animations in different ways on different pages.
 
 ## 🔗 Demo
-[Click here to view the demo](https://fereshtehazizi.github.io/My-Portfolio/)
+[Click here to view my demo](https://fereshtehazizi.github.io/My-Portfolio/)
