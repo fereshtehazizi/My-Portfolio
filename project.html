@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Project | Fereshteh Azizi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="portfoliostyle.css">
+    <link rel="stylesheet" href="color-1.css">
+</head>
+
+<body>
+    <header><a class="brand" href="index.html"><b>F</b>erra.</a>
+        <div class="header-actions"><button class="theme-toggle" type="button" aria-label="Switch to dark mode"><i
+                    class="fa-regular fa-moon"></i></button>
+            <nav class="always"><a href="index.html#portfolio">All work</a><a href="index.html#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main class="detail"><a class="back" href="index.html#portfolio">← Back to selected work</a>
+        <section id="project-detail"></section>
+    </main>
+    <footer>© <span id="year"></span> Fereshteh Azizi. Designed and built with care.</footer>
+    <script src="app.js"></script>
+    <script>const i = +new URLSearchParams(location.search).get('id'); const p = projects[i] || projects[0]; const gallery = [1, 2, 3].map(offset => projects[(i + offset) % projects.length]); document.title = p[1] + ' | Fereshteh Azizi'; document.querySelector('#project-detail').innerHTML = `<div class="project-visuals"><img class="project-hero-image" src="projects/${p[0]}" alt="${p[1]}"><div class="gallery-label">Project gallery <span>01 — 04</span></div><div class="project-gallery">${gallery.map((image, index) => `<figure><img src="projects/${image[0]}" alt="${p[1]} supporting visual ${index + 1}" loading="lazy"><figcaption>Detail 0${index + 2}</figcaption></figure>`).join('')}</div></div><div class="project-copy"><p class="eyebrow">${p[2]}</p><h1>${p[1]}</h1><p class="intro">${p[3]}</p><dl><div><dt>Category</dt><dd>${p[2]}</dd></div><div><dt>Role</dt><dd>Designer</dd></div><div><dt>Focus</dt><dd>Visual storytelling</dd></div><div><dt>Year</dt><dd>2025</dd></div></dl><h2>The idea</h2><p>${p[3]} This work reflects my interest in combining thoughtful details with a clear, approachable experience.</p></div>`</script>
+</body>
+
+</html>

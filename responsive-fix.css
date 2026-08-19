@@ -1,0 +1,19 @@
+@media (max-width: 800px) {
+  header>nav {
+    display: none;
+    position: absolute;
+    top: 77px;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    padding: 22px 6vw;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  header>nav.open {
+    display: flex;
+  }
+}
