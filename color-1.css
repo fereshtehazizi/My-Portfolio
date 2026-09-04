@@ -1,3 +1,30 @@
-:root{
-    --skin-color:#a94719;
-}
+/* Modern finishing layer: keeps the original warm palette intact. */
+:root { --skin-color: #a94719; }
+.projects a, .project-wrap, .gallery-card { border-radius: 16px; }
+.button { box-shadow: 0 9px 22px color-mix(in srgb, var(--accent) 25%, transparent); }
+.theme-toggle { transition: transform .25s ease, color .25s ease, background .25s ease; }
+.theme-toggle:hover { transform: rotate(16deg) scale(1.08); background: var(--cream); }
+.project-actions { display: flex; flex-wrap: wrap; gap: 9px; padding: 0 17px 18px; }
+.project-wrap { background: transparent; overflow: hidden; }
+.project-wrap > a { display: block; }
+.detail-actions { margin-top: 4px; }
+.detail-actions .project-actions { padding: 0; gap: 12px; }
+.detail-actions .project-action { padding: 12px 20px; font-size: 13px; gap: 9px; border-radius: 999px; }
+.detail-actions .project-action:has(.fa-arrow-up-right-from-square) { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 10px 24px color-mix(in srgb, var(--accent) 30%, transparent); }
+.detail-actions .project-action:has(.fa-arrow-up-right-from-square):hover { filter: brightness(.9); }
+.project-action { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line); padding: 7px 11px; font-size: 11px; font-weight: 700; transition: .22s ease; }
+.project-action:hover { color: #fff; border-color: var(--accent); background: var(--accent); transform: translateY(-2px); }
+.project-actions .fa-github { font-size: 14px; }
+.hero > div:first-child, #about, #services, #portfolio, .contact { animation: rise-in .65s both; }
+.hero .portrait { animation: rise-in .8s .12s both; }
+.detail-head, .detail-hero, .detail-meta, .detail-about, .detail-more, .detail-pager { animation: rise-in .6s both; }
+.detail-hero { animation-delay: .07s; }
+.detail-meta { animation-delay: .13s; }
+.detail-about { animation-delay: .19s; }
+.detail-more { animation-delay: .25s; }
+.detail-pager { animation-delay: .31s; }
+.cards article { transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+.cards article:hover { box-shadow: 0 16px 28px #0003; }
+@keyframes rise-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (max-width: 800px) { nav.drawer { box-shadow: -30px 0 60px -30px rgba(0, 0, 0, .35); } nav.drawer a { transition: color .22s ease; } }
