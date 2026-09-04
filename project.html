@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Project case study — Fereshteh Azizi, web developer building responsive, accessible apps with React, Next.js, and TypeScript.">
     <link rel="icon" type="image/png" href="favicon.png">
     <title>Project | Fereshteh Azizi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +25,53 @@
             </nav>
         </div>
     </header>
-    <main class="detail"><a class="back" href="index.html#portfolio">← Back to selected work</a>
-        <section id="project-detail"></section>
+    <main class="detail">
+        <nav class="crumbs" aria-label="Breadcrumb"><a class="back" href="index.html#portfolio"><i
+                    class="fa fa-arrow-left"></i> Back to selected work</a><span class="crumb-path"
+                id="crumb-path"></span></nav>
+        <article id="project-detail"></article>
     </main>
     <footer>© <span id="year"></span> Fereshteh Azizi. Designed and built with care.</footer>
     <script src="app.js"></script>
-    <script>const i = +new URLSearchParams(location.search).get('id'); const p = projects[i] || projects[0]; const gallery = [1, 2, 3].map(offset => projects[(i + offset) % projects.length]); document.title = p[1] + ' | Fereshteh Azizi'; document.querySelector('#project-detail').innerHTML = `<div class="project-visuals"><img class="project-hero-image" src="projects/${p[0]}" alt="${p[1]}"><div class="gallery-label">Project gallery <span>01 — 04</span></div><div class="project-gallery">${gallery.map((image, index) => `<figure><img src="projects/${image[0]}" alt="${p[1]} supporting visual ${index + 1}" loading="lazy"><figcaption>Detail 0${index + 2}</figcaption></figure>`).join('')}</div></div><div class="project-copy"><p class="eyebrow">${p[2]}</p><h1>${p[1]}</h1><p class="intro">${p[3]}</p><dl><div><dt>Category</dt><dd>${p[2]}</dd></div><div><dt>Role</dt><dd>Designer</dd></div><div><dt>Focus</dt><dd>Visual storytelling</dd></div><div><dt>Year</dt><dd>2025</dd></div></dl><h2>The idea</h2><p>${p[3]} This work reflects my interest in combining thoughtful details with a clear, approachable experience.</p></div>`</script>
+    <script>
+        const id = +new URLSearchParams(location.search).get('id');
+        const index = Number.isInteger(id) && projects[id] ? id : 0;
+        const p = projects[index];
+        const gallery = [1, 2, 3].map(offset => projects[(index + offset) % projects.length]);
+        const prev = projects[(index - 1 + projects.length) % projects.length];
+        const next = projects[(index + 1) % projects.length];
+        document.title = p[1] + ' | Fereshteh Azizi';
+        document.getElementById('crumb-path').textContent = 'Work / ' + p[1];
+        document.getElementById('project-detail').innerHTML = `
+            <div class="detail-head">
+                <p class="eyebrow">${String(index + 1).padStart(2, '0')} / ${p[2]} · ${p[7]}</p>
+                <h1>${p[1]}</h1>
+                <p class="intro">${p[3]}</p>
+            </div>
+            <figure class="detail-hero"><img src="${imgSrc(p[0])}" alt="${p[1]} — project screenshot"></figure>
+            <dl class="detail-meta">
+                <div><dt>Stack</dt><dd>${p[6]}</dd></div>
+                <div><dt>Year</dt><dd>${p[7]}</dd></div>
+                <div><dt>Role</dt><dd>Design &amp; development</dd></div>
+                <div><dt>Status</dt><dd>${p[4] ? 'Live &amp; deployed' : 'Source on GitHub'}</dd></div>
+            </dl>
+            <div class="detail-about">
+                <h2>About this <em>build.</em></h2>
+                <div>
+                    <p>Every project here is designed and built end-to-end by me — from the first sketch to the final deploy. This one runs on the stack below.</p>
+                    ${chips(p[6])}
+                    <div class="detail-actions">${actions(p, index)}</div>
+                </div>
+            </div>
+            <div class="detail-more">
+                <div class="gallery-label">More projects <span>from the portfolio</span></div>
+                <div class="project-gallery">${gallery.map(g => `<a class="gallery-card" href="project.html?id=${projects.indexOf(g)}"><img src="${imgSrc(g[0])}" alt="${g[1]}" loading="lazy"><span class="gallery-card-body"><small>${g[2]}</small><strong>${g[1]} <i class="fa fa-arrow-right"></i></strong></span></a>`).join('')}</div>
+            </div>
+            <nav class="detail-pager" aria-label="Project navigation">
+                <a href="project.html?id=${projects.indexOf(prev)}"><i class="fa fa-arrow-left"></i><span><small>Previous project</small><strong>${prev[1]}</strong></span></a>
+                <a class="pager-next" href="project.html?id=${projects.indexOf(next)}"><span><small>Next project</small><strong>${next[1]}</strong></span><i class="fa fa-arrow-right"></i></a>
+            </nav>`;
+    </script>
 </body>
 
 </html>
