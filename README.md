@@ -71,7 +71,7 @@ My-Portfolio/
 ├── app.js               # Project data, rendering, theme toggle, contact form
 ├── portfoliostyle.css   # Main stylesheet (layout + light/dark themes)
 ├── color-1.css          # Finishing layer — radii, animations, hover polish
-├── responsive-fix.css   # Mobile navigation fix
+├── responsive-fix.css   # Legacy placeholder (drawer styles live in portfoliostyle.css)
 ├── projects/            # Project screenshots
 ├── pro31.jpg            # Portrait
 └── favicon.png
